@@ -44,22 +44,60 @@ void zad4(int tab[], int length) {
         }
     }
 }
-void zad5(){
+int zad5(int n){
+    if(n==0) return 1;
+    else return n*zad5(n-1);
 }
-void zad6(){
+int zad6(int n){
+    int result=1;
+    for(int i=1;i<=n;i++){
+        result*=i;
+    }
+    return result;
 }
-void zad7(){
+int zad7(int n){
+    int result = 0;
+    int odd = 1;
+
+    while (n >= odd) {
+        n -= odd;
+        odd += 2;
+        result++;
+    }
+
+    return result;
 }
-void zad8(){
+int zad8(int number){
+    int sqrtNumber = sqrt(number);
+
+    if (number % 100 == sqrtNumber)return 1;
+    else return 0;
 }
-void zad9(){
+int zad9(int number){
+    double sqrtNumber = sqrt(number);
+
+    if (sqrtNumber == floor(sqrtNumber)) return 1;
+    else return 0;
+
 }
-void zad10(){
+bool zad10(int number){
+    if (number <= 1) {
+        return false;
+    }
+
+    for (int i = 2; i * i <= number; ++i) {
+        if (number % i == 0) {
+            return false;
+    }
+
+    return true;
+}
 }
 
 int main()
 {
     //zad1
+
     int a,b,c;
     int tab[]= {3,6,1,8,4,1,9,5};
     int tab2[]= {5,8,1,5,0,4,6,8};
@@ -103,21 +141,29 @@ int main()
     cout<<endl;
     //zad5
     cout << "zad5" << endl;
-    zad5();
+    cout<<"Podaj n:";
+    cin>>a;
+    cout<<a<<"! = "<<zad5(a)<<endl;
     //zad6
     cout << "zad6" << endl;
-    zad6();
+    cout<<a<<"! = "<<zad6(a)<<endl;
     //zad7
     cout << "zad7" << endl;
-    zad7();
+    cout<<"Liczba calkowita pierwiastka z liczby: "<<c<<" to: "<<zad7(c)<<endl;
     //zad8
     cout << "zad8" << endl;
-    zad8();
+    cout<<"Podaj liczbe: ";
+    cin>>a;
+    if(zad8(a))cout << "Liczba " << a << " konczy sie swoim pierwiastkiem." << endl;
+    else cout << "Liczba " << a << " konczy nie sie swoim pierwiastkiem." << endl;
     //zad9
     cout << "zad9" << endl;
-    zad9();
+
+    if(zad9(a))cout << "Liczba " << a << " jest kwadratem liczby calkowitej." <<endl;
+    else cout << "Liczba " << a << " nie jest kwadratem liczby calkowitej." <<endl;
     //zad10
     cout << "zad10" << endl;
-    zad10();
+    if(zad10(a)) cout << "Liczba " << a << " jest liczba pierwsza." << endl;
+    else cout << "Liczba " << a << " nie jest liczba pierwsza." << endl;
     return 0;
 }
